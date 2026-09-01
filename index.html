@@ -6,6 +6,68 @@
     <title>CMST 388 Form Validation</title>
 </head>
 <body>
-    
+    <!-- 
+        Name The user is required to enter a first and last name. You must create two text boxes (one for the first name and one for the last name). Neither field must be blank. Include default text in the first and last name fields. Remove the default text once the user selects the field.
+
+            First Name and Last Name Field Types: Alpha only.
+
+        Address	The user is required to enter a valid mailing address. You must create three separate text boxes to gather city, state, and zip code information. The address can not be blank.
+
+            Zip Code: Numeric only (5 digits)
+            Address Field: Alphanumeric characters
+            City: Alpha only
+            State: (Selected from a pull down menu) The user must select a state.
+            Phone Number	The user must enter a valid 10 digit phone number, including area code.  You must create two text boxes to gather the user's phone number. These fields can not be blank.
+
+        
+        Meal Preference	The user must select a meal preference from a radio button list (Vegan, Vegetarian, Non-Vegetarian).
+        Contact Method	The user must select at least two of four contact methods listed on the form. An error message will display when less than two (zero or one) methods are selected.
+        Comments	Optional field for additional comments. Field length (250 characters). This field can be blank.
+    Buttons
+        Submit	The Submit Button, when clicked, will display all of the errors on the form. If errors exist on the form, the form data will not be e-mailed. 
+        Once all errors have been removed AND all of the default text has been replaced, data entered into the form will be transmitted via e-mail. The Submit Button should call the submit () event handler function.
+        Reset	The Reset Button will reset all of the fields on the form to a blank state. The Reset Button should call the reset () event handler function. 
+    -->
+
+    <form action="">
+        <label for="fname">First Name:<span class="required">*</span></label>
+        <input type="text" id="fname" name="firstname" placeholder="First name" required>
+        
+        <label for="lname">Last Name:<span class="required">*</span></label>
+        <input type="text" id="lname" name="lastname" placeholder="Last name" required>
+
+        <label for="lname">Address:<span class="required">*</span></label>
+        <input type="text" id="lname" name="lastname" placeholder="Last name" required>
+
+        <label for="lname">City:<span class="required">*</span></label>
+        <input type="text" id="city" name="city" placeholder="City" required>
+
+        <label for="lname">State:<span class="required">*</span></label>
+        <input type="text" id="state" name="state" placeholder="State" required>
+        <!-- drop down menu -->
+
+        <label for="zipcode">Zip Code:<span class="required">*</span></label>
+        <input type="number" id="zipcode" name="zipcode" placeholder="12345" pattern="[0-9]{5}" required>
+
+        <label for="phone">Phone:<span class="required">*</span></label>
+        <input type="tel" id="area-code" name="areacode" placeholder="123" pattern="[0-9]{3}" required>
+        <input type="tel" id="phone" name="phone" placeholder="456-7890" pattern="[0-9]{3}-[0-9]{4}" required>
+
+        <label for="email">Email:<span class="required">*</span></label>
+        <input type="text" id="email" name="email" placeholder="name@domain.extension" required>
+        <!-- Length of "name" can be up to 64 characters in length, and "domain" may be up to 252 characters in length. "Invalid e-mail address" error message. -->
+
+        <label for="email">Confirm Email:<span class="required">*</span></label>
+        <input type="text" id="email" name="email" placeholder="name@domain.extension" required>
+        <!-- Confirm E-mail Address	The user must enter in the exact same e-mail address entered in the previous E-mail Address field. If not, an error message will be generated. -->
+
+        <label for="message">Comments:<span class="required">*</span></label>
+        <textarea name="message" id="message" rows="5" required></textarea>
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+
 </body>
 </html>
