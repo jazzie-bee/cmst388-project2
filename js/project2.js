@@ -4,12 +4,13 @@ const address = document.getElementById('address')
 const city = document.getElementById('city')
 const state = document.getElementById('state')
 const zipcode = document.getElementById('zipcode')
-const phone = document.getElementById('phone')
+const telarea = document.getElementById('telarea')
+const telnum = document.getElementById('telnum')
 const email = document.getElementById('email')
 const cemail = document.getElementById('cemail')
 const comment = document.getElementById('comment')
 const form = document.getElementById('form')
-const errorElement = document.getElementById('error')
+const errorElement = document.getElementsByClassName('error-message')
 
 // Create inline errors for each input to better help users correct the form as they go.
 
@@ -37,7 +38,11 @@ form.addEventListener('submit', (e) => {
     
     // if (zipcode.length >= 5) 'Zip code must be 5 digits'; numerci only
 
-    if (phone.value === '' || phone.value == null) {
+    if (telarea.value === '' || phone.value == null) {
+        messages.push('This field if required')
+    }
+
+    if (telnum.value === '' || phone.value == null) {
         messages.push('This field if required')
     }
 
