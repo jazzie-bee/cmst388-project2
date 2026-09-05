@@ -11,13 +11,47 @@ const comment = document.getElementById('comment')
 const form = document.getElementById('form')
 const errorElement = document.getElementById('error')
 
+// Create inline errors for each input to better help users correct the form as they go.
+
 form.addEventListener('submit', (e) => {
     let messages = []
     if (fname.value === '' || fname.value == null) {
-        messages.push('Name is required')
+        messages.push('This field is required')
     }
 
-    if (password)
+    if (lname.value === '' || lname.value == null) {
+        messages.push('This field is required')
+    }
+
+    if (address.value === '' || address.value == null) {
+        messages.push('This field is required')
+    }
+    
+    if (city.value === '' || city.value == null) {
+        messages.push('This field is required')
+    }
+    
+    if (state.value === '' || state.value == null) {
+        messages.push('Please select a state')
+    }
+    
+    // if (zipcode.length >= 5) 'Zip code must be 5 digits'; numerci only
+
+    if (phone.value === '' || phone.value == null) {
+        messages.push('This field if required')
+    }
+
+    // if (phone.length )
+
+    if (email.value === '' || email.value == null) {
+        messages.push('This field is required')
+    }
+    // Checks for correct format 'Please enter valid email address (name@domain.com)'
+    
+    if (cemail.value === '' || cemail.value == null) {
+        messages.push('Emails must match')
+    }
+
 
     if (messages.length > 0) {
         e.preventDefault()

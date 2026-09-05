@@ -93,13 +93,13 @@
 
         <div class="zip-code">
             <label for="zipcode">Zip Code:<span class="required">*</span></label>
-            <input type="text" id="zipcode" name="zipcode" inputmode="numeric" placeholder="12345" pattern="[0-9]{5}" required>
+            <input type="text" id="zipcode" name="zipcode" inputmode="numeric" placeholder="12345" pattern="\d{5}" maxlength="5" required>
         </div>
 
         <div class="phone">
             <label for="phone">Phone:<span class="required">*</span></label>
-            <input type="tel" id="area-code" name="areacode" placeholder="123" pattern="[0-9]{3}" required>
-            <input type="tel" id="phone" name="phone" placeholder="456-7890" pattern="[0-9]{3}-[0-9]{4}" required>
+            <input type="tel" id="telarea" name="areacode" placeholder="123" pattern="[0-9]{3}" minlength="3" maxlength="3" required>
+            <input type="tel" id="telnum" name="phone" placeholder="456-7890" pattern="[0-9]{3}-[0-9]{4}" minlength="7" maxlength="7" size="5" required>
         </div>
 
         <div class="email">
