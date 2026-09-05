@@ -14,6 +14,10 @@ const errorElement = document.getElementsByClassName('error-message')
 
 // Create inline errors for each input to better help users correct the form as they go.
 
+// function validateField(field) {
+//     if (!field.validity.valid)
+// }
+
 form.addEventListener('submit', (e) => {
     let messages = []
     if (fname.value === '' || fname.value == null) {
@@ -56,7 +60,6 @@ form.addEventListener('submit', (e) => {
     if (cemail.value === '' || cemail.value == null) {
         messages.push('Emails must match')
     }
-
 
     if (messages.length > 0) {
         e.preventDefault()
