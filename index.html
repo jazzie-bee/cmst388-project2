@@ -14,26 +14,26 @@
         <div class="form-group">
             <label for="fname">First Name:<span class="required">*</span></label>
             <input type="text" id="fname" name="firstname" placeholder="First name" required>
-            <span class="error-message"></span>
+            <span class="errormsg"></span>
         </div>
         
         <div class="form-group">
             <label for="lname">Last Name:<span class="required">*</span></label>
             <input type="text" id="lname" name="lastname" placeholder="Last name" required>
-            <span class="error-message"></span>
+            <span class="errormsg"></span>
         </div>
 <!-- Remove placholder text once user selects field. Must be alpha only. -->
 
         <div class="form-group">
             <label for="address">Address:<span class="required">*</span></label>
             <input type="text" id="address" name="address" placeholder="Address" required>
-            <span class="error-message"></span>
+            <span class="errormsg"></span>
         </div>
 
         <div class="form-group">
             <label for="city">City:<span class="required">*</span></label>
             <input type="text" id="city" name="city" placeholder="City" required>
-            <span class="error-message"></span>
+            <span class="errormsg"></span>
         </div>
 
         <div class="form-group">
@@ -92,41 +92,68 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
-            <span class="error-message"></span>
+            <span class="errormsg"></span>
         </div>
         <!-- drop down menu -->
 
         <div class="form-group">
             <label for="zipcode">Zip Code:<span class="required">*</span></label>
             <input type="text" id="zipcode" name="zipcode" inputmode="numeric" placeholder="12345" pattern="\d{5}" maxlength="5" required>
-            <span class="error-message"></span>
+            <span class="errormsg"></span>
         </div>
 
         <div class="form-group">
             <label for="phone">Phone:<span class="required">*</span></label>
             <input type="tel" id="telarea" name="areacode" placeholder="123" pattern="[0-9]{3}" minlength="3" maxlength="3" required>
-            <input type="tel" id="telnum" name="phone" placeholder="456-7890" pattern="[0-9]{3}-[0-9]{4}" minlength="7" maxlength="7" size="5" required>
-            <span class="error-message"></span>
+            <span class="errormsg"></span>
+            <input type="tel" id="telnum" name="phone" placeholder="456-7890" pattern="[0-9]{3}-[0-9]{4}" minlength="8" maxlength="8" required>
+            <span class="errormsg"></span>
         </div>
 
         <div class="form-group">
             <label for="email">Email:<span class="required">*</span></label>
             <input type="text" id="email" name="email" placeholder="name@domain.extension" required>
-            <span class="error-message"></span>
+            <span class="errormsg"></span>
         </div>
         <!-- Length of "name" can be up to 64 characters in length, and "domain" may be up to 252 characters in length. "Invalid e-mail address" error message. -->
 
         <div class="form-group">
             <label for="email">Confirm Email:<span class="required">*</span></label>
             <input type="text" id="cemail" name="email" placeholder="name@domain.extension" required>
-            <span class="error-message"></span>
+            <span class="errormsg"></span>
         </div>
         <!-- Confirm E-mail Address	The user must enter in the exact same e-mail address entered in the previous E-mail Address field. If not, an error message will be generated. -->
 
         <div class="form-group">
+            <label for="radio">Meal Preference:<span class="required">*</span></label><br>
+            <span>(select one)</span><br>
+            <input type="radio" id="vegan" name="meal">
+            <label for="html">Vegan</label><br>
+            <input type="radio" id="vegetarian" name="meal">
+            <label for="css">Vegetarian</label><br>
+            <input type="radio" id="none" name="meal">
+            <label for="javascript">Non-Vegetarian</label><br>
+            <span class="errormsg"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="checkbox">Contact Method:<span class="required">*</span></label><br>
+            <span>(select at least two)</span><br>
+            <input type="checkbox" id="phone-contact" name="phone-contact">
+            <label for="phone-contact"> Phone</label><br>
+            <input type="checkbox" id="email-contact" name="email-contact">
+            <label for="email-contact"> E-mail</label><br>
+            <input type="checkbox" id="mail-contact" name="mail-contact">
+            <label for="mail-contact"> Mail</label>
+            <input type="checkbox" id="linkedin" name="linkedin">
+            <label for="linkedin"> LinkedIn</label>
+            <span class="errormsg"></span>
+        </div>
+
+        <div class="form-group">
             <label for="message">Comments:
-            <textarea name="message" id="message" rows="5"></textarea>
-            <span class="error-message"></span>
+            <textarea name="message" id="message" rows="5" maxlength="250"></textarea>
+            <span class="errormsg"></span>
         </div>
         
         <div class="btns">
