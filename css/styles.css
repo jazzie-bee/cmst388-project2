@@ -30,6 +30,16 @@ input {
     width: 300px;
 }
 
+fieldset {
+    margin: 1rem;
+    border: none;
+    padding: 0;
+}
+
+legend {
+    font-size: 1.5rem;
+}
+
 form {
     border: 0.06rem solid #636363;
     border-radius: 0.6rem;
@@ -39,5 +49,20 @@ form {
 }
 
 .errormsg {
+    color: red;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    justify-content: flex-start;    
+}
+
+.btns input {
+    padding: 0.6rem 1.3rem;
+}
+
+.required {
     color: red;
 }
