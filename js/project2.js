@@ -172,6 +172,38 @@ function validateZip() {
     return true;
 }
 
+// Phone auto formating, Best practice rather than making
+// user stick to a strike format while typing. This way
+// the user can type the area code and number as they would
+// naturally and the form will auto format.
+function formatAreaCode(e) {
+    const input = e.target;
+    const digits  = input.value.replace(/\D/g, '').slice(0, 3);
+
+    if (digits.length === 0) {
+        input.value = '';
+    } else if (digits.length < 3) {
+        input.value = `(${digits})`;
+    } else {
+        input.value = `(${digits})`;
+    }
+}
+
+function formatPhoneNumber(e) {
+    const input = e.target;
+    const digits = input.value.replace(/\D/g, '').slice(0, 8);
+
+    if (digits.length <= 3) {
+        input.value = digits;
+    } else {
+        input.value = `${digits.slice(0, 3)}-${digits.slice(3)}`;
+    }
+}
+
+// Rerun formatter every keystroke to update as user types.
+telarea.addEventListener('input', formatAreaCode);
+telnum.addEventListener('input', formatPhoneNumber);
+
 // Phone number has two inputs. Each input needs to
 // be validated independnetly, then check together 
 // for a total of 10 digits.

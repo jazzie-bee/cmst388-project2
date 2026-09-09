@@ -104,9 +104,9 @@
 
         <div class="form-group">
             <label for="phone">Phone:<span class="required">*</span></label>
-            <input type="tel" id="telarea" name="areacode" placeholder="123" pattern="[0-9]{3}" minlength="3" maxlength="3" required>
+            <input type="tel" id="telarea" name="areacode" placeholder="(123)" pattern="\(\d{3}\)" maxlength="5" required>
             <span class="errormsg" data-for="telarea"></span>
-            <input type="tel" id="telnum" name="phone" placeholder="456-7890" pattern="[0-9]{3}-[0-9]{4}" minlength="8" maxlength="8" required>
+            <input type="tel" id="telnum" name="phone" placeholder="456-7890" pattern="\d{3}-\d{4}" maxlength="8" required>
             <span class="errormsg" data-for="telnum"></span>
         </div>
 
@@ -144,7 +144,7 @@
             <input type="checkbox" id="email-contact" name="email-contact">
             <label for="email-contact"> E-mail</label><br>
             <input type="checkbox" id="mail-contact" name="mail-contact">
-            <label for="mail-contact"> Mail</label>
+            <label for="mail-contact"> Mail</label><br>
             <input type="checkbox" id="linkedin" name="linkedin">
             <label for="linkedin"> LinkedIn</label>
             <span class="errormsg"></span>
