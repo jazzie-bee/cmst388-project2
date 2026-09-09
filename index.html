@@ -8,7 +8,6 @@
     <title>CMST 388 Form Validation</title>
 </head>
 <body>
-    <!-- <div  id="error"></div> -->
 
     <form id="form" action="/" method="post">
         <div class="form-group">
@@ -22,7 +21,7 @@
             <input type="text" id="lname" name="lastname" placeholder="Last name" required>
             <span class="errormsg"></span>
         </div>
-<!-- Remove placholder text once user selects field. Must be alpha only. -->
+        <!-- Remove placholder text once user selects field. Must be alpha only. -->
 
         <div class="form-group">
             <label for="address">Address:<span class="required">*</span></label>
@@ -128,11 +127,11 @@
             <label for="radio">Meal Preference:<span class="required">*</span></label><br>
             <span>(select one)</span><br>
             <input type="radio" id="vegan" name="meal">
-            <label for="html">Vegan</label><br>
+            <label for="vegan">Vegan</label><br>
             <input type="radio" id="vegetarian" name="meal">
-            <label for="css">Vegetarian</label><br>
+            <label for="vegetarian">Vegetarian</label><br>
             <input type="radio" id="none" name="meal">
-            <label for="javascript">Non-Vegetarian</label><br>
+            <label for="none">Non-Vegetarian</label><br>
             <span class="errormsg"></span>
         </div>
 
@@ -151,7 +150,7 @@
         </div>
 
         <div class="form-group">
-            <label for="message">Comments:
+            <label for="message">Comments:</label>
             <textarea name="message" id="message" rows="5" maxlength="250"></textarea>
             <span class="errormsg"></span>
         </div>
