@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <form id="form" action="/" onsubmit="return validateForm()" method="post">
+    <form id="form" action="/" method="post">
         <div class="form-group">
             <label for="fname">First Name:<span class="required">*</span></label>
             <input type="text" id="fname" name="firstname" placeholder="First name" required>
@@ -102,7 +102,7 @@
         </div>
 
         <div class="form-group">
-            <label for="phone">Phone:<span class="required">*</span></label>
+            <legend>Phone:<span class="required">*</span></legend>
             <input type="tel" id="telarea" name="areacode" placeholder="(123)" pattern="\(\d{3}\)" maxlength="5" required>
             <span class="errormsg" data-for="telarea"></span>
             <input type="tel" id="telnum" name="phone" placeholder="456-7890" pattern="\d{3}-\d{4}" maxlength="8" required>
@@ -117,14 +117,14 @@
         <!-- Length of "name" can be up to 64 characters in length, and "domain" may be up to 252 characters in length. "Invalid e-mail address" error message. -->
 
         <div class="form-group">
-            <label for="email">Confirm Email:<span class="required">*</span></label>
+            <label for="cemail">Confirm Email:<span class="required">*</span></label>
             <input type="text" id="cemail" name="email" placeholder="name@domain.extension" required>
             <span class="errormsg"></span>
         </div>
         <!-- Confirm E-mail Address	The user must enter in the exact same e-mail address entered in the previous E-mail Address field. If not, an error message will be generated. -->
 
         <div class="form-group">
-            <label for="radio">Meal Preference:<span class="required">*</span></label><br>
+            <legend>Meal Preference:<span class="required">*</span></legend><br>
             <span>(select one)</span><br>
             <input type="radio" id="vegan" name="meal">
             <label for="vegan">Vegan</label><br>
@@ -136,7 +136,7 @@
         </div>
 
         <div class="form-group">
-            <label for="checkbox">Contact Method:<span class="required">*</span></label><br>
+            <legend>Contact Method:<span class="required">*</span></legend><br>
             <span>(select at least two)</span><br>
             <input type="checkbox" id="phone-contact" name="phone-contact">
             <label for="phone-contact"> Phone</label><br>
