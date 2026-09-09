@@ -52,6 +52,25 @@ form {
     color: red;
 }
 
+.phone-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.phone-group legend {
+    width: auto;
+}
+
+#telarea {
+    width: 5rem;
+}
+
+#telnum {
+    width: 7rem;
+}
+
 .btns {
     display: flex;
     flex-direction: row;
