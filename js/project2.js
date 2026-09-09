@@ -194,7 +194,7 @@ function validatePhone() {
     if (numValue === '') {
         showError(telnum, 'Phone number is required');
         numValid = false;
-    } else if (!/^\d{3}$/.test(areaValue)) {
+    } else if (!/^\d{3}-\d{4}$/.test(areaValue)) {
         showError(telnum, 'Phone number must be in the format 123-4567');
         numValid = false;
     } else {
