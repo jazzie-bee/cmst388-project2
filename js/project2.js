@@ -13,8 +13,7 @@ const telarea = document.getElementById('telarea')
 const telnum = document.getElementById('telnum')
 const email = document.getElementById('email')
 const cemail = document.getElementById('cemail')
-const comment = document.getElementById('message')
-const errorElement = document.getElementsByClassName('errormsg')
+const message = document.getElementById('message')
 
 const mealRadios = [
     document.getElementById('vegan'),
