@@ -13,7 +13,7 @@ const telarea = document.getElementById('telarea')
 const telnum = document.getElementById('telnum')
 const email = document.getElementById('email')
 const cemail = document.getElementById('cemail')
-const comment = document.getElementById('comment')
+const comment = document.getElementById('message')
 const errorElement = document.getElementsByClassName('errormsg')
 
 const mealRadios = [
@@ -66,7 +66,7 @@ const textInputs = [fname, lname, address, city, zipcode, telarea, telnum, email
 
 textInputs.forEach((input) => {
     // Save og placholder to put back later
-    const originalPlaceholder = input.ariaPlaceholder;
+    const originalPlaceholder = input.placeholder;
 
     input.addEventListener('focus', () => {
         input.placeholder = '';
@@ -183,7 +183,7 @@ function formatAreaCode(e) {
     if (digits.length === 0) {
         input.value = '';
     } else if (digits.length < 3) {
-        input.value = `(${digits})`;
+        input.value = `(${digits}`;
     } else {
         input.value = `(${digits})`;
     }
@@ -216,7 +216,7 @@ function validatePhone() {
     if (areaValue === '') {
         showError(telarea, 'Area code is required');
         areaValid = false; // using areaValid so it runs through the whole check and not end early with "return false;"
-    } else if (!/^\d{3}$/.test(areaValue)) {
+    } else if (!/^\(\d{3}\)$/.test(areaValue)) {
         showError(telarea, 'Area code must be 3 digits');
         areaValid = false;
     } else {
@@ -226,7 +226,7 @@ function validatePhone() {
     if (numValue === '') {
         showError(telnum, 'Phone number is required');
         numValid = false;
-    } else if (!/^\d{3}-\d{4}$/.test(areaValue)) {
+    } else if (!/^\d{3}-\d{4}$/.test(numValue)) {
         showError(telnum, 'Phone number must be in the format 123-4567');
         numValid = false;
     } else {
