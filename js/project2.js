@@ -106,11 +106,11 @@ const NAME_PATTERN = /^[A-Za-z][A-Za-z '-]*$/;
 
 function validateName(field, label) {
     const value = field.value.trim();
-    if (value === '') {
+    if (value === '') { // Check that field is not empty
         showError(field, `${label} is required`);
         return false;
     }
-    if (!NAME_PATTERN.test(value)) {
+    if (!NAME_PATTERN.test(value)) { // Check the format is correct
         showError(field, `${label} must contain letters only`);
         return false;
     }
@@ -118,26 +118,57 @@ function validateName(field, label) {
     return true;
 }
 
-function validateZip() {
-    const value = zipcode.value.trim();
+// Address and City
+function validateAddress() {
+    const value = address.value.trim();
     if (value === '') {
-        showError(zipcode, 'Zip code is required');
+        showError(address, 'Address is required')
         return false;
     }
-    if (!/^\d{5}$/.test(value)) {
-        showError(zipcode, 'Zip code must be 5 digits')
+    if (!/^[a-zA-Z0-9\s#.,-]+$/.test(value)) {
+        showError(address, 'Address must not include special characters');
         return false;
     }
-    clearError(zipcode);
+    clearError(address);
     return true;
 }
 
+function validateCity() {
+    const value = city.value.trim();
+    if (value === '') {
+        showError(city, 'City is required')
+        return false;
+    }
+    if (!/^[a-zA-Z0-9\s-]+$/.test(value)) {
+        showError(city, 'City must only contain letters');
+        return false;
+    }
+    clearError(city);
+    return true;
+}
+
+// State field and that a selection is made
 function validateState() {
     if (state.value === '') {
         showError(state, 'Please select a state')
         return false;
     }
     clearError(state);
+    return true;
+}
+
+// Zipcode field
+function validateZip() {
+    const value = zipcode.value.trim();
+    if (value === '') {
+        showError(zipcode, 'Zip code is required');
+        return false;
+    }
+    if (!/^\d{5}$/.test(value)) { // Check for max 5 digits, even though HTML has character max
+        showError(zipcode, 'Zip code must be 5 digits')
+        return false;
+    }
+    clearError(zipcode);
     return true;
 }
 
@@ -181,3 +212,101 @@ function validatePhone() {
     return true;
 }
 
+// Email fields
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateEmail() {
+    const value = email.value.trim();
+    if (value === '') {
+        showError(email, 'Email is required');
+        return false;
+    }
+    if (!EMAIL_PATTERN.test(value)) {
+        showError(email, 'Please enter a valid email address');
+        return false;
+    }
+    clearError(email);
+    return true;
+}
+
+function validateEmailConfirmation() {
+    const value = cemail.value.trim();
+    if (value === '') {
+        showError(cemail, 'Please confirm your email address');
+        return false;
+    }
+    if (!EMAIL_PATTERN.test(value)) {
+        showError(cemail, 'Please enter a valid email address');
+        return false;
+    }
+    if (value !== email.value.trim()) { // Check both fields match
+        showError(cemail, 'Email address must match');
+        return false;
+    }
+    clearError(cemail);
+    return true;
+}
+
+// Meal preference
+function validateMealPreference() {
+    const anySelected = mealRadios.some((radio) => radio.checked);
+    if (!anySelected) {
+        showError(mealRadios[0], 'Please select a meal preference');
+        return false;
+    }
+    clearError(mealRadios[0]);
+    return true;
+}
+
+function validateContactMethods() {
+    const checkCount = contactCheckboxes.filter((box) => box.checked).length;
+    if (checkCount < 2) {
+        showError(contactCheckboxes[0], 'Please selecte at least two contact methods');
+        return false;
+    }
+    clearError(contactCheckboxes[0]);
+    return true;
+}
+
+// Optional comments, but with 250 character limit.
+function validateComments() {
+    if (message.value.length > 250) {
+        showError(message, 'Comment cannot exceed 250 characters');
+        return false;
+    }
+    clearError(message);
+    return true;
+}
+
+//----------------------------------
+// FORM SUBMISSION
+//----------------------------------
+function handleSubmit(e) {
+    e.preventDefault();
+
+    const validations = [
+        validateName(fname, 'First name'),
+        validateName(lname, 'Last name'),
+        validateAddress(address, 'Address'),
+        validateCity(city, 'City'),
+        validateState(),
+        validateZip(),
+        validatePhone(),
+        validateEmail(),
+        validateEmailConfirmation(),
+        validateMealPreference(),
+        validateContactMethods(),
+        validateComments()
+    ];
+
+    const isFormValid = validations.every(Boolean);
+
+    if (isFormValid) {
+        sendResultsByEmail();
+        form.reset();
+    }
+}
+
+// Clicking the submit button, or pressing enter fires submit event,
+// which calls handleSubmit above.
+form.addEventListener('submit', handleSubmit);
