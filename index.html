@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <form id="form" action="/" method="post">
+    <form id="form" action="/" onsubmit="return validateForm()" method="post">
         <div class="form-group">
             <label for="fname">First Name:<span class="required">*</span></label>
             <input type="text" id="fname" name="firstname" placeholder="First name" required>
